@@ -12,17 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# [START anthosconfig_repo_sync_reposync_reposync_repo_sync]
-apiVersion: configsync.gke.io/v1beta1
-kind: RepoSync
+# [START anthosconfig_ingress_gateway_repo_sync_reposync_namespace_namespace_asm_ingress]
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: repo-sync
-spec:
-  sourceFormat: unstructured
-  git:
-    repo: https://github.com/GoogleCloudPlatform/anthos-config-management-samples
-    revision: HEAD
-    branch: main
-    dir: asm-acm-tutorial/online-boutique/init
-    auth: none
-# [END anthosconfig_repo_sync_reposync_reposync_repo_sync]
+  name: asm-ingress
+  labels:
+    istio-injection: enabled
+# [END anthosconfig_ingress_gateway_repo_sync_reposync_namespace_namespace_asm_ingress]
