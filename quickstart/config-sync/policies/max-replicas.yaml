@@ -1,0 +1,23 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sReplicaLimits
+metadata:
+  name: example
+spec:
+  # match <object>: lets you configure which resources are in scope for this
+  # constraint. For more information, see the Constraint match section of the
+  # Anthos Config Management documentation:
+  # https://cloud.google.com/anthos-config-management/docs/reference/match
+  match:
+    [match schema]
+  parameters:
+    # ranges <array>: Allowed ranges for numbers of replicas.  Values are
+    # inclusive.
+    ranges:
+      # <list item: object>: A range of allowed replicas.  Values are
+      # inclusive.
+      - # max_replicas <integer>: The maximum number of replicas allowed,
+        # inclusive.
+        max_replicas: 3
+        # min_replicas <integer>: The minimum number of replicas allowed,
+        # inclusive.
+        min_replicas: 0
